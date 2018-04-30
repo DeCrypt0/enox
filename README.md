@@ -3,7 +3,11 @@ Enox Core integration/staging repository
 Dash forked Bitcoin - PIVX Forked Dash - ENOX Forked PIVX
 ## Project INFO ##
 
-
+bitcointalk: https://bitcointalk.org/index.php?topic=3454998
+telegram:https://t.me/joinchat/HjWVsQ6h7IefDUDRGV9JBA
+discord: https://discord.gg/PwMGrhS
+twitter: https://twitter.com/EnoxMasternode
+website: https://enox.io
 
 ## Coin Specs ##
 <table>
