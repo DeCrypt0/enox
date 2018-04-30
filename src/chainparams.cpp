@@ -54,34 +54,29 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (     0, uint256("2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"))
-    (  1000, uint256("8defd49579d63545f9e8cdda31f8503e0513328ca3f7428f33a915258c764d15"))
-    ( 10000, uint256("6af2431daa7456e4620e9493091648eeaac8ddfd53d8cff8101c26806e301d9a"))
-    ( 90000, uint256("a883d86273f02cb19252a878d1e0bda1e5321140480b08e3df9544d7b3d1ce56"))
-    (152000, uint256("4dc1a3eb7d17bab4e7f5768e927c9666ba760d6882d3b600519fdd7b83f65610"))
-    (200000, uint256("9260e1eb2d3851bccd2794e2c61c29af91fcd4b56ba207a4b9a5b1e79b53fb10"));
+    (0, uint256("72dff635dfa26b45c5ceef6dbbc8270f89c220f9805333b0626573375544d69c"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1504595227, // * UNIX timestamp of last checkpoint block
+    1525068726, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
+    boost::assign::map_list_of(0, uint256("0x"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1504595227,
+    1525068726,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
+    boost::assign::map_list_of(0, uint256("0x"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1504595227,
+    1525068726,
     0,
     100};
 
@@ -156,33 +151,9 @@ public:
         genesis.nBits = 0x207fffff;;
         genesis.nNonce = 12345;
 
-        if(genesis.GetHash() != uint256("0x"))
-                {
-                    printf("Searching for genesis block...\n");
-                    uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-                    while(uint256(genesis.GetHash()) > hashTarget)
-                    {
-                        ++genesis.nNonce;
-                        if (genesis.nNonce == 0)
-                        {
-                            printf("NONCE WRAPPED, incrementing time");
-                            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-                            ++genesis.nTime;
-                        }
-                        if (genesis.nNonce % 10000 == 0)
-                        {
-                            printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str(), genesis.hashMerkleRoot.ToString().c_str());
-                        }
-                    }
-                    printf("block.nTime = %u \n", genesis.nTime);
-                    printf("block.nNonce = %u \n", genesis.nNonce);
-                    printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-                    printf("block.merklehash = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-                }
-
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
-        assert(genesis.hashMerkleRoot == uint256("0x894177137a45952cfed89dd395e7fc85208a53548f34defc7c1a85cb0736b3a3"));
+        assert(hashGenesisBlock == uint256("0x72dff635dfa26b45c5ceef6dbbc8270f89c220f9805333b0626573375544d69c"));
+        assert(genesis.hashMerkleRoot == uint256("0xf50468930ea7bbf9ff6b84514d4e5fca34cb191ce6022d54fd78a6637fe31707"));
 
         vSeeds.push_back(CDNSSeedData("0", "45.32.149.214"));
         vSeeds.push_back(CDNSSeedData("1", "8.9.30.222"));
