@@ -1,0 +1,11 @@
+[Protocol]
+exec=enox-qt '%u'
+protocol=enox
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
